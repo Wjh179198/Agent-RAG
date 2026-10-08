@@ -1,0 +1,5 @@
+chat_model_name: "deepseek-flash"
+chat_model_provider: "deepseek"
+
+embedding_model_name: "BAAI/bge-m3"
+embedding_model_provider: "openai"

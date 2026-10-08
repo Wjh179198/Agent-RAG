@@ -60,4 +60,5 @@ def txt_loader(filepath: str, passwd = None) -> list[Document]:
 
     return TextLoader(
         file_path=filepath,
+        encoding="utf-8",
     ).load()

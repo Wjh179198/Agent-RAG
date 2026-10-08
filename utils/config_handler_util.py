@@ -22,6 +22,6 @@ def load_agent_yaml(config_path: str = get_abs_path("config/agent.yml"), encodin
 
 
 rag_conf = load_rag_yaml()
-chroma_conf = load_milvus_yaml()
+milvus_conf = load_milvus_yaml()
 prompt_conf = load_prompt_yaml()
 agent_conf = load_agent_yaml()

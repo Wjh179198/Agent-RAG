@@ -1,0 +1,10 @@
+milvus_url: "http://134.175.135.230:19530"
+db_name: rag_tutorial
+collection_name: agent
+data_path: data
+md5_hex_store: md5.text
+allow_knowledge_file_type: ["txt", "pdf"]
+
+chunk_size: 200
+chunk_overlap: 20
+separators: ["\n\n", "\n", ".", "!", "?", "。", "！", "？", " ", ""]
