@@ -6,7 +6,7 @@ from langchain_core.tools import tool
 import requests
 from rag.rag_service import RagSummarizeService
 from utils.config_handler_util import agent_conf
-from utils.gaode_util import get_user_city, get_city_addcode
+from utils.gaode_util import get_user_city
 from utils.logger_handler_util import logger
 from utils.path_tool_util import get_abs_path
 
@@ -57,11 +57,10 @@ def get_weather(city: str) -> str:
     Returns:
           返回天气详情
     """
-    address_code = get_city_addcode("113.54.202.57")
-    resp = requests.get(f"https://restapi.amap.com/v3/weather/weatherInfo?city={address_code}?key={GAODE_API_KEY}")
+    resp = requests.get(f"https://restapi.amap.com/v3/weather/weatherInfo?city={city}&key={GAODE_API_KEY}")
     resp.raise_for_status()
     weather = resp.json()
-    if weather["status"] != 1 or not weather["lives"]:
+    if weather.get("status") != "1" or not weather.get("lives"):
         raise RuntimeError(f"城市{city}的天气获取失败")
 
     live = weather["lives"][0]
